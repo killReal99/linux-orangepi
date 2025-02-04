@@ -1,0 +1,11 @@
+--- drivers/gpu/drm/rockchip/rockchip_drm_vop.c
++++ drivers/gpu/drm/rockchip/rockchip_drm_vop.c
+@@ -849,7 +849,7 @@ static int vop_plane_atomic_check(struct drm_plane *plane,
+ 		struct vop *vop = to_vop(crtc);
+ 
+ 		if (!vop->data->afbc) {
+-			DRM_ERROR("vop does not support AFBC\n");
++			DRM_DEBUG_KMS("vop does not support AFBC\n");
+ 			return -EINVAL;
+ 		}
+ 

@@ -1,0 +1,11 @@
+--- drivers/tty/serial/8250/8250_port.c
++++ drivers/tty/serial/8250/8250_port.c
+@@ -2913,7 +2973,7 @@ serial8250_do_set_termios(struct uart_port *port, struct ktermios *termios,
+ 	if (up->capabilities & UART_CAP_RTOIE)
+ 		up->ier |= UART_IER_RTOIE;
+ 
+-	serial_port_out(port, UART_IER, up->ier);
++	serial8250_set_IER(up, up->ier);
+ 
+ 	if (up->capabilities & UART_CAP_EFR) {
+ 		unsigned char efr = 0;
